@@ -143,6 +143,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MateController.cs" />
     <Compile Include="Controllers\SubMenyController.cs" />
     <Compile Include="Controllers\ViewController.cs" />
     <Compile Include="Global.asax.cs">
@@ -152,15 +153,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\15899.png" />
+    <Content Include="Content\aprobao.gif" />
+    <Content Include="Content\b1.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\cs1.css" />
     <Content Include="Content\elect.gif" />
     <Content Include="Content\giphy.gif" />
+    <Content Include="Content\giphys.gif" />
     <Content Include="Content\img_leyendo.png" />
     <Content Include="Content\PiggygifWeb.gif" />
+    <Content Include="Content\questions.js" />
+    <Content Include="Content\quiz.css" />
+    <Content Include="Content\quiz.js" />
     <Content Include="Content\RedAnimationLoop.gif" />
     <Content Include="Content\RED_THINKING_AWESOMENESS.png" />
+    <Content Include="Content\reprobado.gif" />
     <Content Include="Content\Small-mario.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -198,6 +206,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\View\Index.cshtml" />
     <Content Include="Views\SubMeny\Index.cshtml" />
+    <Content Include="Views\Mate\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
