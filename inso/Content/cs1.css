@@ -1,0 +1,17 @@
+﻿.btn-jg{
+    background-color:darkgreen;
+    color:ghostwhite;
+    width:5%
+}
+body{
+    background-color:aquamarine;
+}
+.container {
+    background-color: white;
+}
+.cnt {
+    height: 10%;
+    width: 100%;
+    background-color:white;
+}
+
