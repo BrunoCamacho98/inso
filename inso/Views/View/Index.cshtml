@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script>
+        function move() {
+            var elem = document.getElementById("pb");
+            var width = 1;
+            var id = setInterval(frame, 50);
+            document.getElementById('bar').style.display = '';
+            document.getElementById('btn-jg').style.display = 'none';
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                } else {
+                    width = width +5;
+                    elem.style.width = width + '%';
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload=" document.getElementById('bar').style.display = 'none';">
+
+    <div class="container" style="width:100%">
+        <table align="center">
+            <tr>
+                <td>
+            <img src="~/Content/RedAnimationLoop.gif" width="25%" style="margin-left:30%" /> <br /><br />
+           
+            </td>
+            </tr>
+        </table>
+        <div class="progress" style="width:30%; margin-left:38%" id="bar">
+             <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="pb">
+              </div>
+         </div>
+        <table align="center">
+            <tr>
+                <td>
+                    
+                    <button type="submit" onclick="move();" id="btn-jg" > JUGAR</button>
+                </td>
+            </tr>
+        </table>
+               
+    </div>
+</body>
+</html>
