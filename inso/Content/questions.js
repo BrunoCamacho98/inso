@@ -1,13 +1,8 @@
-﻿function cargarImagen(url) {
-    var imagen = new Image();
-    imagen.src = url;
-    return imagen;
-}
-
+﻿
 var questions = [
     {
         "question": " Un triángulo equilátero tiene…",
-        "option1": cargarImagen("15899.png"),
+        "option1": "",
         "option2": " 10 minutos",
         "option3": " 6 minutos",
         "option4": " 5 minutos",

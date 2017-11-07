@@ -17,8 +17,8 @@ var sg;
 
 function loadQuestion (questionIndex){
 	var q = questions[questionIndex];
-	questionEl.textContent=(questionIndex + 1) + '.' + q.question;
-	opt1= q.option1;
+    questionEl.textContent = (questionIndex + 1) + '.' + q.question;
+    opt1.src = q.option1;
 	opt2.textContent= q.option2;
 	opt3.textContent= q.option3;
 	opt4.textContent= q.option4;
@@ -48,14 +48,17 @@ function loadNextQuestion(){
 		resultCont.style.display= '';
 		com.style.display='none';
 		if(score>10){
-            resultCont.textContent = 'FELICIDADES!!' + score;
+            resultCont.textContent = 'FELICIDADES!!' 
             document.getElementById('img').style.display = '';
             document.getElementById('alls').style.backgroundColor = 'white';
+            document.getElementById('results').textContent = 'Sacaste ' + score;
 		}
 		if(score<=10){
-			resultCont.textContent = 'LO SENTIMOS ' + score
+            resultCont.textContent = 'LO SENTIMOS';
             document.getElementById('imgs').style.display = '';
             document.getElementById('alls').style.backgroundColor = 'white';
+            document.getElementById('results').style.display = '';
+            document.getElementById('results').textContent = 'Sacaste ' + score;
 		}
 	}
 	

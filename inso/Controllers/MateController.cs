@@ -1,17 +1,29 @@
-﻿using System;
+﻿using inso.Servicios;
+using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace inso.Controllers
 {
     public class MateController : Controller
     {
-        // GET: Mate
-        public ActionResult Index()
+        IPreguntaServices pregres;
+
+        public MateController()
         {
-            return View();
+            pregres = new PreguntaService();
+        }
+        // GET: Mate
+        public ActionResult Index(int? pagina)
+        {
+            int pagtam = 1;
+            int numpag= pagina ?? 1;
+            var list = pregres.ReadPreg();
+            return View(list.ToPagedList(numpag,pagtam));
         }
 
     }

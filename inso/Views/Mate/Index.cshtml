@@ -1,37 +1,82 @@
-﻿
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<inso.Models.Pregunta>
 <!doctype html>
-<div class="row">
-    <div class="col-sm-4"></div>
-</div>
-<div class="row" id="alls">
-    <div class="col-sm-4">
-        <script language="javascript" src="~/Content/temporizador.js"></script>
-        <link href="~/Content/bootstrap.css"  rel="stylesheet"/>
-        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-        <link href="~/Content/quiz.css" rel="stylesheet" />
-        <link href="~/Content/b1.css" rel="stylesheet" />
-        <body onLoad="start(); ">
+<html>
+
+<body onload="cuenta();">
+    <div class="row">
+        <div class="col-sm-4"></div>
+    </div>
+    <div class="row" id="alls">
+        <div class="col-sm-4">
+            <script language="javascript" src="~/Content/temporizador.js"></script>
+            <link href="~/Content/bootstrap.css" rel="stylesheet" />
+            <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+            <link href="~/Content/quiz.css" rel="stylesheet" />
+            <link href="~/Content/b1.css" rel="stylesheet" />
             <div id="quizContainer" class="container">
-                <div id="contador" align="center"  class="contador"></div>
-                <h3 id="question" class="question" style="font-size:30px;color:#000000"><b></b></h3>
-                <label class="option"><input type="radio" name="option" value="1"><span id="opt1"></span></label>
-                <label class="option"><input type="radio" name="option" value="2"><span id="opt2"></span></label>
-                <label class="option"><input type="radio" name="option" value="3"><span id="opt3"></span></label>
-                <label class="option"><input type="radio" name="option" value="4"><span id="opt4"></span></label>
-                <button id="nextButton" class="next-btn" onClick="loadNextQuestion()">Siguiente</button>
+
+                <table class="table" style="background-color:white">
+                    @foreach (var item in Model)
+                    {
+                        <div id="contador" align="center" class="contador">
+                            @Html.DisplayFor(modelItem => item.contador)
+                        </div>
+                        <tr>
+                            <td id="question" class="question" style="font-size:30px;color:#000000">
+                                @Html.DisplayFor(modelItem => item.pregunta)
+
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class="option">
+                                <input type="radio" name="option" value="1">
+                                @Html.DisplayFor(modelItem => item.opt1, new { id = "opt1" })
+                            </td>
+                            <td class="option">
+                                <input type="radio" name="option" value="2">
+                                @Html.DisplayFor(modelItem => item.opt2, new { id = "opt2" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="option">
+                                <input type="radio" name="option" value="3">
+                                @Html.DisplayFor(modelItem => item.opt3, new { id = "opt3" })
+                            </td>
+                            <td class="option">
+                                <input type="radio" name="option" value="4">
+                                @Html.DisplayFor(modelItem => item.opt4, new { id = "opt4" })
+                            </td>
+
+                        </tr>
+
+                    }
+                </table>
+                <button id="nextButton" class="next-btn" onclick="document.getElementById('img').style.display = '';
+            document.getElementById('alls').style.backgroundColor = 'white'; document.getElementById('quizContainer').style.display='none';
+		document.getElementById('result').style.display= ''; document.getElementById('Comprob').style.display='none';">Siguiente</button>
             </div>
             <div id="result" class="container result" style="display: none;color:#000000"></div>
             <label id="Comprob" class="lbrs" style="display: none"></label>
             <h1 id="hz" style="display: none"></h1>
             <div style="display:none" id="img">
-                <img src="~/Content/aprobao.gif" width="80%" style="margin-top:30%;margin-left:105%"/>
+                <img src="~/Content/aprobao.gif" width="70%" style="margin-top:30%;margin-left:115%" />
             </div>
             <div style="display:none" id="imgs">
-                <img src="~/Content/reprobado.gif" width="80%" style="margin-top:30%;margin-left:105%" />
+                <img src="~/Content/reprobado.gif" width="70%" style="margin-top:30%;margin-left:115%" />
             </div>
             <div id="results" class="container result" style="display: none;color:#000000"></div>
-            <script src="~/Content/questions.js"></script>
-            <script src="~/Content/quiz.js"></script>
-        </body>
+        </div>
     </div>
-</div>
+</body>
+</html>
+
+@Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina }))
+
+<h5 style="color:black">Pregunta @Model.PageNumber de @Model.PageCount</h5>
+
+
+
+                
+     

@@ -282,6 +282,7 @@ button:hover + div#content {
         color: #ffffff;
     }
 
+
 .result {
     height: 100px;
     text-align: center;
@@ -330,7 +331,7 @@ table.tab {
     position: relative;
     float: right;
     background: black;
-    color: #FFF;
+    color: white;
     width: 48px;
     height: 45px;
     font-size: 30px;
